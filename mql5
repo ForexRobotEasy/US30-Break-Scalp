@@ -1,0 +1,95 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                           US30 Break Scalp.mq5   |
+//|                Developed by Forex Robot Easy Team                 |
+//|                 Developer's site: forexroboteasy.com              |
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                      Terms of Reference                           |
+//|                                                                  |
+//|------------------------------------------------------------------|
+//| 1. Implement US30 Break Scalp trading software.                   |
+//| 2. Follow safe trading strategies, avoid martingale.              |
+//| 3. Execute trades based on a specific range breakout.             |
+//| 4. Limit trading activity to three trades per day.                |
+//| 5. Optimize compatibility with IcMarkets, FTMO, and MFF brokers.  |
+//| 6. Allow users to adjust trading hours.                           |
+//| 7. Conduct thorough backtesting for performance evaluation.       |
+//| 8. Emphasize past performance does not guarantee future results.   |
+//| 9. Maintain low drawdown while considering potential adversities. |
+//| 10. Focus solely on code requirements and necessary features.     |
+//| 11. Include only essential trading functions in technical spec.   |
+//| 12. Size of terms of reference should not exceed 1500-2000 chars. |
+//|                                                                  |
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//|                      US30 Break Scalp Robot                      |
+//|                                                                  |
+//+------------------------------------------------------------------+
+
+// Define constants
+#define MAX_TRADES_PER_DAY 3
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                     |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Add initialization code here
+    
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                   |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Add deinitialization code here
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                              |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Add tick processing code here
+    
+    // Check if the maximum number of trades per day has been reached
+    if (TotalTrades() >= MAX_TRADES_PER_DAY)
+    {
+        Print('Maximum trades per day reached. No new trades will be placed.');
+        return;
+    }
+    
+    // Check if the current hour is within the specified trading hours
+    if (Hour() >= StartHour && Hour() <= EndHour)
+    {
+        // Execute the range breakout trading strategy
+        RangeBreakoutStrategy();
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Function to execute the range breakout strategy                    |
+//+------------------------------------------------------------------+
+void RangeBreakoutStrategy()
+{
+    // Add range breakout strategy code here
+}
+
+//+------------------------------------------------------------------+
+//| Function to count the number of trades executed                    |
+//+------------------------------------------------------------------+
+int TotalTrades()
+{
+    int total = 0;
+    
+    // Add code to count the total number of trades executed
+    
+    return total;
+}
